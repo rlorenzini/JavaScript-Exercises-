@@ -28,17 +28,27 @@ function getStockQuote(symbol) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
-let bullshit1 = getStockQuote("APLE")
-let bullshit2 = getStockQuote("AMAZ")
-let bullshit3 = getStockQuote("ALBAB")
-let bullshit4 = getStockQuote("GOOG")
-let bullshit5 = getStockQuote("FB")
 
-function loaded(){myText.innerHTML = `${bullshit1.name} ${bullshit1.price}
-<br>${bullshit2.name} ${bullshit2.price}
-<br>${bullshit3.name} ${bullshit3.price}
-<br>${bullshit4.name} ${bullshit4.price}
-<br>${bullshit5.name} ${bullshit5.price}`}
+
+function allStocks(){
+  let bullshit1 = getStockQuote("APLE")
+  let bullshit2 = getStockQuote("AMAZ")
+  let bullshit3 = getStockQuote("ALBAB")
+  let bullshit4 = getStockQuote("GOOG")
+  let bullshit5 = getStockQuote("FB")
+  myText.innerHTML =
+  `${bullshit1.name} $${bullshit1.price}
+<br>${bullshit2.name} $${bullshit2.price}
+<br>${bullshit3.name} $${bullshit3.price}
+<br>${bullshit4.name} $${bullshit4.price}
+<br>${bullshit5.name} $${bullshit5.price}`}
+
+function loaded(){
+  window.setInterval(function(){
+    allStocks()
+  },1000)
+}
+
 window.onload=loaded()
 
 
@@ -55,7 +65,7 @@ function myFunction() {
   var x = document.getElementById("userInput").value;
   let bullshit = getStockQuote(x)
   console.log(bullshit.name, bullshit.price)
-  document.getElementById("myText").innerHTML = `${bullshit.name}, ${bullshit.price}`;
+  document.getElementById("myText").innerHTML = `${bullshit.name}, $${bullshit.price}`;
 }
 function clicked() {
   window.setInterval(function(){
